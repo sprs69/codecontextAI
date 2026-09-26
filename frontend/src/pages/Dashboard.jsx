@@ -201,27 +201,27 @@ export default function Dashboard({ activeRepo, setActiveRepo }) {
 
       {/* Executive Codebase Health & Intelligence Strip */}
       <section className="linear-stats-section">
-        <div className="grid-6 stagger-group" style={{ marginTop: 8, marginBottom: 4 }}>
+        <div className="grid-6 stagger-group" style={{ marginTop: 12, marginBottom: 12 }}>
           {/* 1. CODEBASE HEALTH */}
           <div
             className="card stat-card fade-in cursor-target"
             onClick={() => navigate('/repository')}
             role="button"
             tabIndex={0}
-            style={{ cursor: 'pointer', padding: '14px 16px' }}
+            style={{ cursor: 'pointer', padding: '22px 20px', minHeight: 148, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
           >
-            <div className="stat-card-header" style={{ marginBottom: 6 }}>
-              <span className="card-title" style={{ fontSize: 11 }}>Codebase Health</span>
-              <span className={`status-pill ${overallHealth >= 80 ? 'pill-good' : overallHealth >= 60 ? 'pill-warning' : 'pill-critical'}`} style={{ fontSize: 9 }}>
+            <div className="stat-card-header" style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className="card-title" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: '0.04em' }}>Codebase Health</span>
+              <span className={`status-pill ${overallHealth >= 80 ? 'pill-good' : overallHealth >= 60 ? 'pill-warning' : 'pill-critical'}`} style={{ fontSize: 10, padding: '2px 8px' }}>
                 {overallHealth >= 80 ? 'HEALTHY' : 'REVIEW'}
               </span>
             </div>
             <div className="stat-card-body">
-              <div className="card-value" style={{ fontSize: 24 }}>
+              <div className="card-value" style={{ fontSize: 32, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
                 {overallHealth}
-                <span className="value-max" style={{ fontSize: 12 }}>/100</span>
+                <span className="value-max" style={{ fontSize: 14 }}>/100</span>
               </div>
-              <div className="card-subtitle" style={{ fontSize: 11 }}>{filesCount} files &bull; {locCount} LOC</div>
+              <div className="card-subtitle" style={{ fontSize: 12.5, marginTop: 6 }}>{filesCount} files &bull; {locCount} LOC</div>
             </div>
           </div>
 
@@ -231,18 +231,18 @@ export default function Dashboard({ activeRepo, setActiveRepo }) {
             onClick={() => navigate('/guardrails')}
             role="button"
             tabIndex={0}
-            style={{ cursor: 'pointer', padding: '14px 16px' }}
+            style={{ cursor: 'pointer', padding: '22px 20px', minHeight: 148, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
           >
-            <div className="stat-card-header" style={{ marginBottom: 6 }}>
-              <span className="card-title" style={{ fontSize: 11 }}>Guardrail Violations</span>
-              <span className="badge badge-high" style={{ fontSize: 9, padding: '1px 6px' }}>{highViolations} High</span>
+            <div className="stat-card-header" style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className="card-title" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: '0.04em' }}>Guardrail Violations</span>
+              <span className="badge badge-high" style={{ fontSize: 10, padding: '2px 8px' }}>{highViolations} High</span>
             </div>
             <div className="stat-card-body">
-              <div className="card-value" style={{ fontSize: 24 }}>
+              <div className="card-value" style={{ fontSize: 32, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
                 {violationCount}
-                <span className="value-max" style={{ fontSize: 12 }}> active</span>
+                <span className="value-max" style={{ fontSize: 14 }}> active</span>
               </div>
-              <div className="card-subtitle" style={{ fontSize: 11, display: 'flex', gap: 6 }}>
+              <div className="card-subtitle" style={{ fontSize: 12.5, marginTop: 6, display: 'flex', gap: 6 }}>
                 <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{guardrailSummary?.summary?.HIGH || 3} High</span>
                 <span>&bull;</span>
                 <span>{guardrailSummary?.summary?.MEDIUM || 2} Med</span>
@@ -258,18 +258,18 @@ export default function Dashboard({ activeRepo, setActiveRepo }) {
             onClick={() => navigate('/architecture')}
             role="button"
             tabIndex={0}
-            style={{ cursor: 'pointer', padding: '14px 16px' }}
+            style={{ cursor: 'pointer', padding: '22px 20px', minHeight: 148, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
           >
-            <div className="stat-card-header" style={{ marginBottom: 6 }}>
-              <span className="card-title" style={{ fontSize: 11 }}>Architecture</span>
-              <span className="micro-tag" style={{ fontSize: 9 }}>5 TIERS</span>
+            <div className="stat-card-header" style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className="card-title" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: '0.04em' }}>Architecture</span>
+              <span className="micro-tag" style={{ fontSize: 10, padding: '2px 8px' }}>5 TIERS</span>
             </div>
             <div className="stat-card-body">
-              <div className="card-value" style={{ fontSize: 24 }}>
+              <div className="card-value" style={{ fontSize: 32, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
                 {analysis?.components?.length || 7}
-                <span className="value-max" style={{ fontSize: 12 }}> nodes</span>
+                <span className="value-max" style={{ fontSize: 14 }}> nodes</span>
               </div>
-              <div className="card-subtitle" style={{ fontSize: 11 }}>{patternCount} design patterns</div>
+              <div className="card-subtitle" style={{ fontSize: 12.5, marginTop: 6 }}>{patternCount} design patterns</div>
             </div>
           </div>
 
@@ -279,18 +279,18 @@ export default function Dashboard({ activeRepo, setActiveRepo }) {
             onClick={() => navigate('/pr-review')}
             role="button"
             tabIndex={0}
-            style={{ cursor: 'pointer', padding: '14px 16px' }}
+            style={{ cursor: 'pointer', padding: '22px 20px', minHeight: 148, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
           >
-            <div className="stat-card-header" style={{ marginBottom: 6 }}>
-              <span className="card-title" style={{ fontSize: 11 }}>PR Risk Gatekeeper</span>
-              <span className="badge badge-high" style={{ fontSize: 9, padding: '1px 6px' }}>CRITICAL</span>
+            <div className="stat-card-header" style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className="card-title" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: '0.04em' }}>PR Risk Gatekeeper</span>
+              <span className="badge badge-high" style={{ fontSize: 10, padding: '2px 8px' }}>CRITICAL</span>
             </div>
             <div className="stat-card-body">
-              <div className="card-value" style={{ fontSize: 24 }}>
+              <div className="card-value" style={{ fontSize: 32, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
                 87
-                <span className="value-max" style={{ fontSize: 12 }}>/100</span>
+                <span className="value-max" style={{ fontSize: 14 }}>/100</span>
               </div>
-              <div className="card-subtitle" style={{ fontSize: 11 }}>Pre-merge AST evaluation</div>
+              <div className="card-subtitle" style={{ fontSize: 12.5, marginTop: 6 }}>Pre-merge AST evaluation</div>
             </div>
           </div>
 
@@ -300,18 +300,18 @@ export default function Dashboard({ activeRepo, setActiveRepo }) {
             onClick={() => navigate('/decisions')}
             role="button"
             tabIndex={0}
-            style={{ cursor: 'pointer', padding: '14px 16px' }}
+            style={{ cursor: 'pointer', padding: '22px 20px', minHeight: 148, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
           >
-            <div className="stat-card-header" style={{ marginBottom: 6 }}>
-              <span className="card-title" style={{ fontSize: 11 }}>Decision Memory</span>
-              <span className="micro-tag" style={{ fontSize: 9 }}>ADR</span>
+            <div className="stat-card-header" style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className="card-title" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: '0.04em' }}>Decision Memory</span>
+              <span className="micro-tag" style={{ fontSize: 10, padding: '2px 8px' }}>ADR</span>
             </div>
             <div className="stat-card-body">
-              <div className="card-value" style={{ fontSize: 24 }}>
+              <div className="card-value" style={{ fontSize: 32, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
                 {effectiveDecisions}
-                <span className="value-max" style={{ fontSize: 12 }}> records</span>
+                <span className="value-max" style={{ fontSize: 14 }}> records</span>
               </div>
-              <div className="card-subtitle" style={{ fontSize: 11 }}>Context reasoning graph</div>
+              <div className="card-subtitle" style={{ fontSize: 12.5, marginTop: 6 }}>Context reasoning graph</div>
             </div>
           </div>
 
@@ -321,17 +321,17 @@ export default function Dashboard({ activeRepo, setActiveRepo }) {
             onClick={() => navigate('/onboarding')}
             role="button"
             tabIndex={0}
-            style={{ cursor: 'pointer', padding: '14px 16px' }}
+            style={{ cursor: 'pointer', padding: '22px 20px', minHeight: 148, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
           >
-            <div className="stat-card-header" style={{ marginBottom: 6 }}>
-              <span className="card-title" style={{ fontSize: 11 }}>Onboarding Status</span>
-              <span className="status-pill pill-good" style={{ fontSize: 9 }}>READY</span>
+            <div className="stat-card-header" style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className="card-title" style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: '0.04em' }}>Onboarding Status</span>
+              <span className="status-pill pill-good" style={{ fontSize: 10, padding: '2px 8px' }}>READY</span>
             </div>
             <div className="stat-card-body">
-              <div className="card-value" style={{ fontSize: 24 }}>
+              <div className="card-value" style={{ fontSize: 32, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
                 4 Paths
               </div>
-              <div className="card-subtitle" style={{ fontSize: 11 }}>Role-tailored starter plans</div>
+              <div className="card-subtitle" style={{ fontSize: 12.5, marginTop: 6 }}>Role-tailored starter plans</div>
             </div>
           </div>
         </div>
@@ -384,11 +384,11 @@ export default function Dashboard({ activeRepo, setActiveRepo }) {
             </span>
           }
           useWindowScroll
-          stageHeight={540}
-          startWidth={74}
-          startHeight={68}
-          startRadius={14}
-          endRadius={12}
+          stageHeight={660}
+          startWidth={78}
+          startHeight={72}
+          startRadius={16}
+          endRadius={14}
           mediaZoom={1.04}
           scrollDistance={0.65}
           holdDistance={0.25}

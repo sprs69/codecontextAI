@@ -306,8 +306,8 @@ export default function GuardrailsPage({ activeRepo, onLoadDemo }) {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     padding: '8px 12px',
-                    background: isSelected ? 'var(--accent-orange-tint)' : '#FAFAF9',
-                    border: isSelected ? '1px solid var(--accent-orange-border)' : '1px solid var(--border-primary)',
+                    background: isSelected ? 'rgba(249, 115, 22, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+                    border: isSelected ? '1px solid rgba(249, 115, 22, 0.4)' : '1px solid rgba(255, 255, 255, 0.10)',
                     borderRadius: 'var(--radius-xs)',
                     fontSize: 12,
                     cursor: 'pointer',
@@ -317,15 +317,15 @@ export default function GuardrailsPage({ activeRepo, onLoadDemo }) {
                   title={isSelected ? 'Click to deselect rule' : `Click to filter violations by: ${rule.rule}`}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: isSelected ? 'var(--text-primary)' : 'var(--text-muted)' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: isSelected ? '#FB923C' : 'rgba(161, 161, 170, 0.7)' }}>
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <span style={{ fontWeight: 500, color: 'var(--text-primary)' }}>
+                    <span style={{ fontWeight: 500, color: '#F4F4F5' }}>
                       {rule.rule}
                     </span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span style={{ color: 'var(--text-dim)', fontSize: 11 }}>—</span>
+                    <span style={{ color: 'rgba(161, 161, 170, 0.5)', fontSize: 11 }}>—</span>
                     <span
                       className={`badge ${count > 0 ? 'badge-high' : 'badge-low'}`}
                       style={{ fontSize: 10, fontFamily: 'var(--font-mono)' }}

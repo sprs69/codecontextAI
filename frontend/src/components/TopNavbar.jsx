@@ -21,6 +21,7 @@ import {
   IconPanelExpand,
 } from './Icons';
 import './TopNavbar.css';
+import { LiquidGlassSurface } from './LiquidGlassSurface';
 
 export const NAV_ITEMS = [
   { to: '/dashboard', Icon: IconDashboard, label: 'Dashboard' },
@@ -109,6 +110,15 @@ export function TopNavbar({ activeRepo, onLoadDemo, loadingDemo, onOpenTour }) {
       className={`top-navbar ${scrolled ? 'is-scrolled' : ''} ${isCollapsed ? 'nav-collapsed' : 'nav-expanded'}`}
       aria-label="Main Application Navigation"
     >
+      {/* ── Original Liquid Glass JS Refractive Surface ────────────── */}
+      <LiquidGlassSurface
+        className="top-navbar-glass-surface"
+        borderRadius={16}
+        type="rounded"
+        tintColor={[10 / 255, 7 / 255, 20 / 255]}
+        tintOpacity={0.18}
+      />
+
       <div className="top-navbar-inner">
         {/* ── Brand & Logo ────────────────────────────────────────── */}
         <div className="top-navbar-brand-section">

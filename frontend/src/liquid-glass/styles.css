@@ -1,0 +1,30 @@
+/* Base Styles from liquid-glass-js */
+.glass-hero-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.glass-content-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.glass-gradient-banner {
+  height: 300px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-gradient-banner h2 {
+  color: white;
+  text-align: center;
+}

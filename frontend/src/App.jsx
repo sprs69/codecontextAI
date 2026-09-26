@@ -92,28 +92,25 @@ function AppContent() {
       {/* ── Single Continuous Live Molten Metal Wallpaper (Fixed Viewport Layer) ── */}
       <div className="continuous-molten-wallpaper" aria-hidden="true">
         <MoltenMetal
-          color1="#F97316"
-          color2="#FED7AA"
-          color3="#EA580C"
-          speed={0.65}
-          scale={5.2}
+          color1="#5227FF"
+          color2="#FF9FFC"
+          color3="#FFFFFF"
+          speed={0.35}
+          scale={4}
           detail={3}
-          glow={1.4}
-          coreSize={0.08}
-          swirl={1.35}
-          fold={-0.3}
-          blackPoint={0.03}
-          brightness={1.2}
+          glow={1.6}
+          coreSize={0.1}
+          swirl={1}
+          fold={-0.2}
+          blackPoint={0.05}
+          brightness={1.3}
           colorMode="molten"
-          grain
-          grainIntensity={0.03}
-          mouseInteraction
-          mouseStrength={0.25}
-          opacity={0.72}
-          backgroundColor="#FFFFFF"
-          lightMode={true}
+          grain={true}
+          grainIntensity={0.05}
+          mouseInteraction={true}
+          mouseStrength={0.3}
+          opacity={1.0}
         />
-        <div className="continuous-wallpaper-scrim" />
       </div>
 
       {/* ── Monochrome Intro Reveal & Precision TargetCursor ─────── */}
