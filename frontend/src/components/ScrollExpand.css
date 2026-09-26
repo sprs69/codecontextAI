@@ -1,0 +1,379 @@
+.scroll-expand {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-expand--scroller {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior: contain;
+}
+
+.scroll-expand--scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-expand__track {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-expand__stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  --se-title-size: 4rem;
+}
+
+.scroll-expand__frame {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(21% 29% 21% 29% round 24px);
+  will-change: clip-path;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.scroll-expand__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transform-origin: center;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;
+}
+
+.scroll-expand__media--custom {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.se-molten-wrapper,
+.scroll-expand__media--custom .molten-metal-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+}
+
+.scroll-expand__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.35) 45%, rgba(255, 255, 255, 0.75));
+  opacity: 0;
+}
+
+.scroll-expand__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6%;
+  opacity: 0;
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.scroll-expand__title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 6%;
+  text-align: center;
+  font-size: var(--se-title-size);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #18181B;
+  pointer-events: none;
+  will-change: opacity, transform;
+  z-index: 4;
+}
+
+.scroll-expand__hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 6;
+  will-change: opacity, transform;
+}
+
+/* ── CodeContext Custom Overlay & Framing ────────────────────────────────── */
+.scroll-expand.codecontext-scrollexpand {
+  margin: 14px 0 28px;
+}
+
+.scroll-expand.codecontext-scrollexpand .scroll-expand__stage {
+  border-radius: var(--radius-lg, 14px);
+  background: transparent;
+  box-shadow: none;
+  position: sticky;
+  top: 68px;
+}
+
+.scroll-expand.codecontext-scrollexpand .scroll-expand__frame {
+  box-shadow: 0 16px 48px rgba(24, 24, 27, 0.09), 0 0 0 1px rgba(249, 115, 22, 0.3);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Architecture Viewport Lens Grid inside Frame */
+.se-lens-viewport {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.08) 0%, transparent 60%),
+    linear-gradient(to right, rgba(24, 24, 27, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 24, 27, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+.scroll-expand.codecontext-scrollexpand .scroll-expand__title {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #18181B;
+  text-shadow: none;
+}
+
+.se-title-pill-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 90%;
+}
+
+.se-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #E7E5E4;
+  box-shadow: 0 2px 8px rgba(24, 24, 27, 0.04);
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #EA580C;
+}
+
+.se-title-text {
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid #E7E5E4;
+  box-shadow: 0 4px 16px rgba(24, 24, 27, 0.06);
+  color: #18181B;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.scroll-expand.codecontext-scrollexpand .scroll-expand__hint {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #71717A;
+  bottom: 1.2rem;
+}
+
+.se-hint-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #E7E5E4;
+  border-radius: 9999px;
+  box-shadow: 0 3px 12px rgba(24, 24, 27, 0.06), 0 0 0 1px rgba(254, 215, 170, 0.4);
+  color: #27272A;
+  transition: all 0.25s ease;
+}
+
+.se-hint-text {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.se-hint-arrow {
+  color: #F97316;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-block;
+  animation: seHintBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes seHintBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+.se-overlay-container {
+  max-width: 860px;
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 22px 28px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #E7E5E4;
+  border-radius: var(--radius-lg, 14px);
+  box-shadow: 0 20px 50px rgba(24, 24, 27, 0.1), 0 0 0 1px #FED7AA;
+  pointer-events: auto;
+}
+
+.se-overlay-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill, 9999px);
+  background: #FFF7ED;
+  border: 1px solid #FED7AA;
+  margin-bottom: 12px;
+}
+
+.se-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #F97316;
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
+}
+
+.se-badge-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #EA580C;
+}
+
+.se-overlay-headline {
+  font-size: clamp(1.8rem, 2.7vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+  color: #18181B;
+  margin-bottom: 8px;
+  text-shadow: none;
+}
+
+.se-overlay-subhead {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #3F3F46;
+  margin-bottom: 18px;
+  max-width: 720px;
+  text-shadow: none;
+}
+
+.se-overlay-pills-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.se-pill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 12px;
+  background: #FAFAF9;
+  border: 1px solid #E7E5E4;
+  border-radius: var(--radius-sm, 6px);
+  text-align: left;
+}
+
+.se-pill-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #71717A;
+  text-transform: uppercase;
+}
+
+.se-pill-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #18181B;
+}
+
+.se-overlay-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-md {
+  padding: 9px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: var(--radius-md, 7px);
+}
+
+@media (max-width: 860px) {
+  .se-overlay-pills-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .se-overlay-container {
+    padding: 18px 16px;
+  }
+}
+

@@ -1,0 +1,16 @@
+{
+  "name": "codecontext-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CodeContext AI - Intelligent Codebase Intelligence Platform for Distributed Software Teams",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "frontend": "npm --prefix frontend run dev",
+    "backend": ".\\.venv\\Scripts\\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload",
+    "test": ".\\.venv\\Scripts\\pytest.exe -v"
+  },
+  "keywords": ["ai", "codebase-intelligence", "architecture", "guardrails", "pr-review", "hackathon"],
+  "author": "CodeContext AI Team",
+  "license": "MIT"
+}
